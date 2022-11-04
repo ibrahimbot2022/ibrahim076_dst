@@ -1,0 +1,46 @@
+#define STACK_SIZE 5
+int St[10],top,item,
+top=-1;
+ 
+void push()
+{ if (top== STACK_SIZE)
+     printf("stack overflow\n");
+  else
+  {
+     top++;
+     St[top]=item;
+  }
+}
+
+int pop()
+{  int del_item;
+   if (top==-1)
+      printf("stack under flow\n");
+   else
+   {
+      del_item=St[top];
+      top--;
+      retuen del_item;
+   }
+}
+
+void display()
+{ int i;
+  if (top==-1)
+      printf("stack is empty\n");
+  for(i=0;i<=top;i==)
+      printf("%d \t",St[i]);
+}
+while(1)
+{
+ switch(ch)
+ {
+    case 1: push();
+            break;
+    case 2: pop();
+            break;
+    case 3: display();
+            break;
+    default:printf("enter one of the given cases");
+ } 
+}                                  
