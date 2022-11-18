@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define Stack_size 10
-push(int st[],int*top,int item)
+void push(int st[],int*top,int item)
 {
 	if(*top==Stack_size - 1)
 		printf("Stack Overflow \n");
