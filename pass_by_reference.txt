@@ -48,7 +48,7 @@ void main()
                     push(st,&top,item);
                     break;
             case 2: value_deleted=pop(st,&top);
-                    printf("item_deleted=%d",value_deleted);
+                    printf("item_deleted=%d\n",value_deleted);
                     break;
             case 3: display(st,&top);
                     break;
