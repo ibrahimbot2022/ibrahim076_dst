@@ -1,0 +1,192 @@
+#include <stdio.h>
+#include<math.h>
+#include<conio.h>
+#include<stdlib.h>
+
+struct node {
+
+ int value;
+ struct node *next;
+};
+
+typedef struct node *node;
+// typedef NUll null;
+
+node getnode()
+{
+ node new;
+
+ new = (node)malloc(sizeof(struct node));
+
+ if(new == NULL)
+ {
+ printf("memory not allocated\n");
+ }
+
+ return new;
+}
+
+node insert_at_beg(int item, node first)
+{
+ node temp;
+
+ temp = getnode();
+
+ temp->value = item;
+ temp->next = NULL;
+
+ if(first == NULL)
+ {
+ return temp;
+ }
+
+ else
+ {
+ temp->next = first;
+ first = temp;
+ return first;
+ }
+
+}
+
+
+node insert_at_end(int item, node first)
+{
+ node temp,last;
+
+ temp = getnode();
+
+ temp->value = item;
+ temp->next = NULL;
+
+ if(first == NULL)
+ {
+ return temp;;
+ }
+
+ if(first->next == NULL)
+ {
+ first->next = temp;
+ return first;
+ }
+ else
+ {
+ last = first;
+
+ while(last->next != NULL)
+ {
+ last = last->next;
+ }
+
+ last->next = temp;
+
+ return first;
+ }
+}
+
+
+node insert_at_any_position(int item ,node first,int position)
+{
+ int count = -1;
+ node temp,prev,curr;
+
+ temp = getnode();
+
+ temp->value = item;
+ temp->next = NULL;
+
+ if(first == NULL && position == 1)
+ {
+ return temp;
+ }
+
+ if(first != NULL && position == 1)
+ {
+ insert_at_beg(item, first);
+ }
+
+ prev = NULL;
+ curr = NULL;
+
+ while(count != position && curr != NULL)
+ {
+ prev = curr;
+ curr = curr->next;
+ count++;
+ }
+
+ if(count == position)
+ {
+ prev->next = temp;
+ temp->next = curr;
+
+ }
+
+ if(curr == NULL)
+ {
+ printf("element does not found\n");
+ }
+
+
+}
+
+void display(node first)
+{
+ if(first == NULL)
+ {
+ printf("list is empty\n");
+ }
+ else
+ {
+ printf("Elememts are:-\n");
+ while(first != NULL)
+ {
+ printf("%d\n",first->value);
+ first = first->next;
+ }
+ }
+}
+
+int main()
+{
+ int item,n;
+
+ node first = NULL;
+
+ while(1)
+ {
+ printf("choose the following : \n 1.Inert at the beg\n 2.Insert at the the end\n 3.Insert at any position\n 4. Exit\n 5.display");
+ scanf("%d",&n);
+
+ switch(n)
+ {
+ case 1 : printf("insert element \n");
+ int a ;
+ scanf("%d",&a);
+ first = insert_at_beg(a, first);
+ break;
+
+ case 2 : printf("insert element \n");
+ int b ;
+ scanf("%d",&b);
+ first = insert_at_end(b, first);
+ break;
+
+ case 3 : printf("insert element and its position\n");
+ int c,p ;
+ scanf("%d %d",&c,&p);
+ first = insert_at_any_position(a, first,p);
+ break;
+
+ case 5 : display(first);
+ break;
+
+ case 4 : exit(0);
+
+ default : printf("enter valid number\n");
+
+ }
+
+ }
+
+} 
