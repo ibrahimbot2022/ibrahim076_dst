@@ -180,7 +180,7 @@ void display(NODE first)
 	temp=first;
 	while(temp!=NULL)
 	{
-		printf("value stored in node=%d\n",temp->value);
+		printf("%d\n",temp->value);
 		temp=temp->next;
 	}
 }
