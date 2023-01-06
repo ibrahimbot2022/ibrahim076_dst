@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 struct node {
@@ -67,21 +68,26 @@ return head;
 int main(){
     N head= NULL;
    
-    int a[5];
-    for(int i=0;i<5;i++){
-        printf("enter the data for  linked list\n");
+    int a[5],n=0;
+    printf("enter the size of the list:\n");
+    scanf("%d",&n);
+    printf("enter the data for the list\n");
+    for(int i=0;i<n;i++){
+        
         scanf("%d",&a[i]);
         head =insert_rear(head,a[i]);
        
     }
+    printf("the list before it is sorted\n");
     display(head);
 printf("\n");
 // printf("\n");
 head=sort(head);
+printf("the list after it is sorted\n");
 display(head);
 
    
 
-    // display(head1);
+    
 
 }
