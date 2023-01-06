@@ -82,7 +82,7 @@ int main(){
     printf("\n");
     display(list2);
     printf("\n");
-    head1=concat(list1,list2);
+    list1=concat(list1,list2);
     printf("After Concatenating both the linked list\n");
     display(list1);
 
